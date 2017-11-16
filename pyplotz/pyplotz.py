@@ -18,6 +18,16 @@ class PyplotZ():
         #!/usr/bin/python
         # -*- coding: utf-8 -*-
         pass
+    
+    def __fetch_font(self,file_path):
+        import requests
+        default_url = 'https://github.com/201528015329004/pyplotz/raw/master/pyplotz/plot_zh.ttf'
+        print 'start downloading default chinese font(only for first time)'
+        r = requests.get(default_url)
+        with open(file_path, "wb") as code:
+            code.write(r.content)
+        
+        print 'downloading complete'        
     def __utf8__(self,s):
         if type(s) is str:
             s = s.decode("utf-8")
@@ -48,6 +58,7 @@ class PyplotZ():
             font_name = 'plot_zh.ttf'
             font_lib = '~/Library/Fonts/'
             font_lib = os.path.expanduser(font_lib)
+            try_download = False
             
             if not os.path.exists(font_lib):
                 os.makedirs(font_lib)
@@ -57,8 +68,20 @@ class PyplotZ():
                     font_full_path = os.path.join(inner_path,font_name)
                     shutil.copy2(font_full_path, font_lib)
                     print 'Font installed at the first runtime'                    
-            except Exception as e:
-                raise Exception("Error:"+str(e))
+            except Exception:
+                # try downloading
+                print 'try downloading'
+                try_download = True
+            if try_download:
+                try:
+                    self.__fetch_font(font_lib + font_name)
+                    if os.path.exists(font_lib + font_name):
+                        print "Font installed at the first time"
+                    else:
+                        print "cannot download"
+                except Exception as e:
+                    raise Exception("Download Failed:" + str(e))
+            
             if os.path.exists(font_lib + font_name):
                 self.zh_font = FontProperties(fname = font_lib + font_name)
                 self.using_fname = font_lib + font_name
