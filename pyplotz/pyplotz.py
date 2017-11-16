@@ -180,7 +180,7 @@ class PyplotZ():
     
     
     
-if __name__ == '__main__':
+if True:
     
     
     import matplotlib.pyplot as plt
