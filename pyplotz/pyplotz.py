@@ -26,7 +26,6 @@ class PyplotZ():
         r = requests.get(default_url)
         with open(file_path, "wb") as code:
             code.write(r.content)
-        
         print 'downloading complete'        
     def __utf8__(self,s):
         if type(s) is str:

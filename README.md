@@ -1,8 +1,12 @@
 # pyplotz 中文支持组件
 
- 轻量级 matplotlib 中文支持组件。
+特性 Features
+------
+ 
+跨平台轻量级 matplotlib 中文支持组件。支持 Linux， MacOS 和 Windows。
 
-A light weight wrapper for matplotlib users with Chinese characters supported.
+A cross platform light weight wrapper for matplotlib users with Chinese characters supported. It can be used in 
+Linux, MacOS and Windows.
 
 -------
 
@@ -38,7 +42,7 @@ pltz.legend() # use legend function from pltz to show Chinese properly
 
 ```
 
-
+获取方式 Installation
 -------
 
 请使用命令行安装：
