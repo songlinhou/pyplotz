@@ -21,7 +21,7 @@ class PyplotZ():
     
     def __fetch_font(self,file_path):
         import requests
-        default_url = 'https://github.com/201528015329004/pyplotz/raw/master/pyplotz/plot_zh.ttf'
+        default_url = 'https://github.com/201528015329004/pyplotz/raw/master/downloads/plot_zh.ttf'
         print 'start downloading default chinese font(only for first time)'
         r = requests.get(default_url)
         with open(file_path, "wb") as code:
@@ -180,28 +180,11 @@ class PyplotZ():
     
     
     
-if True:
-    
-    
+if __name__ == "__main__":
     import matplotlib.pyplot as plt
     import numpy as np
     pltz = PyplotZ()
-    
-    pltz.enable_chinese()
-    """
-    plt.figure(dpi=100)
-    pltz.set_figure_size(7,3)
-    pltz.plot(range(10),range(20,30),label="sin数据")
-    pltz.title("中文")
-    pltz.xlabel("横坐标")
-    pltz.ylabel("纵坐标")
-    pltz.default_font_size()
-    plt.grid()
-    pltz.legend()
-    fig = plt.gcf()
-    size = fig.get_size_inches()
-    """
-    
+    pltz.enable_chinese()    
     pltz.set_figure_size(10,5)
     pltz.enable_chinese()
     pltz.plot(np.linspace(-10,10),np.sin(np.linspace(-10,10)),'b', label='sin数据',alpha=0.7)
