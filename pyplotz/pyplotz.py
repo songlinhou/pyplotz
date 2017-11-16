@@ -28,27 +28,35 @@ class PyplotZ():
         return None
     def enable_chinese(self,prefer_internal=False):
         import os
+        import platform
         from matplotlib.font_manager import FontProperties
         use_internal = prefer_internal
         if use_internal:
-            interal_zh = '/Library/Fonts/Songti.ttc'
-            if not os.path.exists(interal_zh):
+            platform = platform.system().lower()
+            if platform.startswith('win'):
                 use_internal = False
             else:
-                self.zh_font = FontProperties(fname = interal_zh)
-                self.using_fname = interal_zh
+                interal_zh = '/Library/Fonts/Songti.ttc'
+                if not os.path.exists(interal_zh):
+                    use_internal = False
+                else:
+                    self.zh_font = FontProperties(fname = interal_zh)
+                    self.using_fname = interal_zh
         if not use_internal:
             import os
             font_name = 'plot_zh.ttf'
             font_lib = '~/Library/Fonts/'
             font_lib = os.path.expanduser(font_lib)
+            
+            if not os.path.exists(font_lib):
+                os.makedirs(font_lib)
             try:
                 if not os.path.exists(font_lib + font_name):   
                     import shutil
                     shutil.copy2(font_name, font_lib)
-                    print 'Font installed at the first runtime'
+                    print 'Font installed at the first runtime'                    
             except Exception as e:
-                print e
+                raise Exception("Error:"+str(e))
             if os.path.exists(font_lib + font_name):
                 self.zh_font = FontProperties(fname = font_lib + font_name)
                 self.using_fname = font_lib + font_name
