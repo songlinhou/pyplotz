@@ -111,10 +111,43 @@ class PyplotZ():
         return size
     def set_figure_size(self,width,height):
         plt.figure(figsize=(width,height))
+        
     def plot(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
         kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
         plt.plot(*arg,**kwargs)
+    def hist(self,*arg,**kwargs):
+        arg = [self.__utf8__(a) for a in arg]
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        plt.hist(*arg,**kwargs)
+    def hist2d(self,*arg,**kwargs):
+        arg = [self.__utf8__(a) for a in arg]
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        plt.hist2d(*arg,**kwargs)
+    def pie(self,*arg,**kwargs):
+        arg = [self.__utf8__(a) for a in arg]
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        plt.pie(*arg,**kwargs)
+    def polar(self,*arg,**kwargs):
+        arg = [self.__utf8__(a) for a in arg]
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        plt.polar(*arg,**kwargs)
+    def hexbin(self,*arg,**kwargs):
+        arg = [self.__utf8__(a) for a in arg]
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        plt.hexbin(*arg,**kwargs)
+    def bar(self,*arg,**kwargs):
+        arg = [self.__utf8__(a) for a in arg]
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        plt.bar(*arg,**kwargs)
+    def barbs(self,*arg,**kwargs):
+        arg = [self.__utf8__(a) for a in arg]
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        plt.barbs(*arg,**kwargs)
+    def barh(self,*arg,**kwargs):
+        arg = [self.__utf8__(a) for a in arg]
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        plt.barh(*arg,**kwargs)
     def title(self,*arg,**kwargs):
         if hasattr(self,'zh_font'):
             if self.zh_font is not None:
@@ -183,7 +216,7 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     import numpy as np
     pltz = PyplotZ()
-    pltz.enable_chinese()    
+    pltz.enable_chinese()
     pltz.set_figure_size(10,5)
     pltz.enable_chinese()
     pltz.plot(np.linspace(-10,10),np.sin(np.linspace(-10,10)),'b', label='sin数据',alpha=0.7)
