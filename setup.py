@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'pyplotz',
   packages = ['pyplotz'], # this must be the same as the name above
-  version = '0.1',
+  version = '0.13',
   description = 'A light weight wrapper for matplotlib users with Chinese characters supported',
   author = 'Ray Williams',
   author_email = 'rock307977586@gmail.com',
