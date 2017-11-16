@@ -44,6 +44,7 @@ class PyplotZ():
                     self.using_fname = interal_zh
         if not use_internal:
             import os
+            inner_path = os.path.dirname(os.path.realpath(__file__))
             font_name = 'plot_zh.ttf'
             font_lib = '~/Library/Fonts/'
             font_lib = os.path.expanduser(font_lib)
@@ -53,7 +54,8 @@ class PyplotZ():
             try:
                 if not os.path.exists(font_lib + font_name):   
                     import shutil
-                    shutil.copy2(font_name, font_lib)
+                    font_full_path = os.path.join(inner_path,font_name)
+                    shutil.copy2(font_full_path, font_lib)
                     print 'Font installed at the first runtime'                    
             except Exception as e:
                 raise Exception("Error:"+str(e))
