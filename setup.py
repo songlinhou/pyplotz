@@ -7,7 +7,7 @@ setup(
   author = 'Ray Williams',
   author_email = 'rock307977586@gmail.com',
   url = 'https://github.com/201528015329004/pyplotz', # use the URL to the github repo
-  download_url = 'https://github.com/201528015329004/pyplotz/archive/0.1.tar.gz', # I'll explain this in a second
+  download_url = 'https://github.com/201528015329004/pyplotz/archive/0.13.tar.gz', # I'll explain this in a second
   keywords = ['pyplot', 'chinese', 'matplotlib','python','plt','pltz'], # arbitrary keywords
   classifiers = [],
 )
