@@ -26,7 +26,7 @@ class PyplotZ():
             code.write(r.content)
         cprint('downloading complete')       
     def __utf8__(self,s):
-        if type(s) is str:
+        if type(s) is bytes:
             s = s.decode("utf-8")
         return s
     def _get_font_property(self):
@@ -112,39 +112,39 @@ class PyplotZ():
         
     def plot(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.plot(*arg,**kwargs)
     def hist(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.hist(*arg,**kwargs)
     def hist2d(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.hist2d(*arg,**kwargs)
     def pie(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.pie(*arg,**kwargs)
     def polar(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.polar(*arg,**kwargs)
     def hexbin(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.hexbin(*arg,**kwargs)
     def bar(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.bar(*arg,**kwargs)
     def barbs(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.barbs(*arg,**kwargs)
     def barh(self,*arg,**kwargs):
         arg = [self.__utf8__(a) for a in arg]
-        kwargs = {k:self.__utf8__(v) for k,v in kwargs.iteritems()}
+        kwargs = {k:self.__utf8__(v) for k,v in kwargs.items()}
         plt.barh(*arg,**kwargs)
     def title(self,*arg,**kwargs):
         if hasattr(self,'zh_font'):

@@ -3,3 +3,4 @@ setup.cfg
 setup.py
 pyplotz/__init__.py
 pyplotz/pyplotz.py
+pyplotz/pyversion.py
