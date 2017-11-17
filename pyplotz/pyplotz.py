@@ -1,16 +1,14 @@
-#!/usr/bin/env python2
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
 Created on Thu Nov 16 18:00:50 2017
 
-@author: MacBook
+@author: Ray
 """
 
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-#coding:utf-8
 
 import matplotlib.pyplot as plt
+from pyversion import cprint
 
 class PyplotZ():
     
@@ -22,11 +20,11 @@ class PyplotZ():
     def __fetch_font(self,file_path):
         import requests
         default_url = 'https://github.com/201528015329004/pyplotz/raw/master/downloads/plot_zh.ttf'
-        print 'start downloading default chinese font(only for first time)'
+        cprint('start downloading default chinese font(only for first time)')
         r = requests.get(default_url)
         with open(file_path, "wb") as code:
             code.write(r.content)
-        print 'downloading complete'        
+        cprint('downloading complete')       
     def __utf8__(self,s):
         if type(s) is str:
             s = s.decode("utf-8")
@@ -66,18 +64,18 @@ class PyplotZ():
                     import shutil
                     font_full_path = os.path.join(inner_path,font_name)
                     shutil.copy2(font_full_path, font_lib)
-                    print 'Font installed at the first runtime'                    
+                    cprint('Font installed at the first runtime')                 
             except Exception:
                 # try downloading
-                print 'try downloading'
+                cprint('try downloading')
                 try_download = True
             if try_download:
                 try:
                     self.__fetch_font(font_lib + font_name)
                     if os.path.exists(font_lib + font_name):
-                        print "Font installed at the first time"
+                        cprint("Font installed at the first time")
                     else:
-                        print "cannot download"
+                        cprint("cannot download")
                 except Exception as e:
                     raise Exception("Download Failed:" + str(e))
             
