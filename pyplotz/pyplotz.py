@@ -8,6 +8,10 @@ Created on Thu Nov 16 18:00:50 2017
 
 
 import matplotlib.pyplot as plt
+import os
+import sys
+curpath = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(curpath)
 from pyversion import cprint
 
 class PyplotZ():
